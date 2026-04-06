@@ -1,0 +1,29 @@
+nav {
+    background-color: #eee;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    color: #444;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+}
+
+.ml-auto {
+    margin-left: auto;
+}

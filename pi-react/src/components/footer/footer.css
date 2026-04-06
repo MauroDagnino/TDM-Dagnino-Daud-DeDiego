@@ -1,0 +1,18 @@
+.alert-primary {
+    background-color: #cfe2ff;
+    border: 1px solid #b6d4fe;
+    border-radius: 4px;
+    color: #084298;
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
