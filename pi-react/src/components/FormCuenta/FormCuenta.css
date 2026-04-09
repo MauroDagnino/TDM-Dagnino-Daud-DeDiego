@@ -1,0 +1,74 @@
+.form-cuenta{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form-cuenta div{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    width: 100%;
+}
+
+.error{
+    color: red;
+}
+
+.conetenedor-padre{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3%;
+    background-color: rgb(255, 243, 138);
+}
+
+.conetenedor-padre article{
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(0, 0, 146);
+}
+
+.campo-forms{
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.boton{
+    width: 25%;
+    border: none;
+    padding: 2%;
+    color: yellow;
+    font-weight: 900;
+    background-color: rgba(0, 0, 123);
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+/* CORRECCIÓN IMPORTANTE */
+.boton:hover{
+    text-decoration: underline;
+}
+
+.conetenedor-padre h2{
+    text-align: center;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 900;
+}
+
+.articulo-formulario{
+    background-color: white;
+}
+
+.ya-tengo-cuenta{
+    margin-top: 10%;
+    text-decoration: none;
+}
+
+.ya-tengo-cuenta:hover{
+    text-decoration: underline;
+}

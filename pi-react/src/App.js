@@ -1,13 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Home from './components/home/home';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
 import React from 'react';
 import Search from './components/search/search';
-import {Route, Link, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, } from 'react-router-dom';
 import Error from './components/notFound/notFound';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import Cuenta from './Screens/cuenta/Cuenta';
+import Login from './Screens/login/Login';
+
 
 function App() {
   return (
@@ -16,8 +18,12 @@ function App() {
         <Header />
         <Search />
         <Switch>
+
           <Route exact path="/" component={Home} />
+          <Route path="/Cuenta" component={Cuenta}/>
+          <Route path = "/Login" component = {Login}/>
           <Route component={Error} />
+
         </Switch>
         <Footer />
       </React.Fragment>
