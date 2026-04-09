@@ -1,15 +1,14 @@
 
 import './App.css';
 import Home from './components/home/home';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
 import React from 'react';
 import Search from './components/search/search';
 import { BrowserRouter, Route, Switch, } from 'react-router-dom';
 import Error from './components/notFound/notFound';
 import Cuenta from './Screens/cuenta/Cuenta';
-import Login from './Screens/login/Login';
-
+import Login from './Screens/Login/Login';
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/Cuenta" component={Cuenta}/>
           <Route path = "/Login" component = {Login}/>
+          <Route path="/ResultadoBusqueda/:busqueda" />
           <Route component={Error} />
 
         </Switch>
