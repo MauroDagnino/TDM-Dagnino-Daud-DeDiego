@@ -2,14 +2,10 @@ import FormLogin from "../../components/FormLogin/FormLogin";
 
 function Login() {
     return(
-        <section className="conetenedor-padre">
+        <section >
             <article className="articulo-formulario">
-                <h2>Entra a tu cuenta</h2>
-            <FormLogin/>
-
+                <FormLogin/>
             </article>
-
-
         </section>
     )
 }

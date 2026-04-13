@@ -1,14 +1,14 @@
 
 import './App.css';
 import Home from './components/home/home';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
 import React from 'react';
 import Search from './components/search/search';
 import { BrowserRouter, Route, Switch, } from 'react-router-dom';
 import Error from './components/notFound/notFound';
 import Cuenta from './Screens/cuenta/Cuenta';
-import Login from './Screens/Login/Login';
+import Login from './Screens/login/Login';
 
 function App() {
   return (

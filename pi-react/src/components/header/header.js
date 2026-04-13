@@ -1,26 +1,27 @@
 import React from "react";
 import './header.css'
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 function Header() {
     return(
         <nav>
             <ul className="nav nav-tabs my-4">
                 <li className="nav-item">
-                    <a className="nav-link" href="index.html">Home</a>
+                    <Link to={"/Home"} class="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="movies.html">Películas</a>
+                    <Link to={"/Peliculas"} class="nav-link">Películas</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="series.html">Series</a>
+                    <Link to={"/Series"} class="nav-link">Series</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="favorites.html">Favoritas</a>
+                    <Link to={"/Favoritos"} class="nav-link">Favoritos</Link>
                 </li>
                 <li className="nav-item ml-auto">
-                    <a className="nav-link" href="register.html">Registro</a>
+                    <Link to={"/Cuenta"} class="nav-link">Registro</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="login.html">Login</a>
+                    <Link to={"/Login"} class="nav-link">Login</Link>
                 </li>
             </ul>
         </nav>

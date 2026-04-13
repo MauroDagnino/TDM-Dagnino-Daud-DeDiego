@@ -57,10 +57,11 @@ class FormCuenta extends Component {
             <form className="form-cuenta" onSubmit={(event) => this.evitarSubmit(event)}>
 
                 <div>
-                    <label>Correo Electrónico: </label>
+                    <label>Correo Electrónico </label>
                     <input
                         className="campo-forms"
                         type="text"
+                        placeholder="Ingresá tu email"
                         onChange={(event) => this.controlarEmail(event)}
                         value={this.state.email}
                     />
@@ -69,10 +70,11 @@ class FormCuenta extends Component {
                 </div>
 
                 <div>
-                    <label>Contraseña: </label>
+                    <label>Contraseña </label>
                     <input
                         className="campo-forms"
                         type="password"
+                        placeholder="Ingresá tu contraseña"
                         onChange={(event) => this.controlarPassword(event)}
                         value={this.state.password}
                     />
@@ -83,7 +85,7 @@ class FormCuenta extends Component {
 
                 <input className="boton" type="submit" value="crear cuenta" />
 
-                <a className="ya-tengo-cuenta" href="/login">Ya tengo una cuenta</a>
+                <a className="ya-tengo-cuenta" href="/login">¿Ya tenés cuenta? Iniciar sesión</a>
 
             </form>
         )
