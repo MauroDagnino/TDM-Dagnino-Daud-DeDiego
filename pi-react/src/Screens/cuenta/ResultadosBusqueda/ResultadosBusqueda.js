@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Resultado from '../../../components/resultados/resultados';
+import Loader from '../../../components/loader/loader'
 
 class ResultadosBusqueda extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      resultados: []
+      resultados: [],
+      cargando: true
     };
   }
 
@@ -23,12 +25,18 @@ class ResultadosBusqueda extends Component {
 
     fetch(`https://api.themoviedb.org/3/search/${type}?query=${busqueda}`, options)
     .then(res => res.json())
-    .then(res => console.log(res))
+    .then(res => this.setState({ 
+      resultados: res.results,
+      cargando: false
+    }))
     .catch(err => console.error(err));
 
 }
 
     render() {
+        if (this.state.cargando) {
+            return <Loader/>
+        }
         return (
         <div>
             {this.state.resultados.map(pelicula => (
