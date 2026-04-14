@@ -1,0 +1,42 @@
+.buscador{
+ width: 100%;
+ padding: 2px 20px;
+ display: flex;
+ justify-content: left;
+ align-items: center;
+}
+
+.buscadorForm {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.buscadorForm input {
+    font-size: 17px;
+    width: 100%;
+  padding: 10px 2px;
+  border-radius: 6px;
+  border-width: 1.5px;
+  border-color: #ccc;
+}
+
+.buscadorForm select {
+  padding: 2px 2.5px;
+  border: none;
+  border-left: 1.5px solid #ccc;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.buscadorForm button {
+  padding: 8px 20px;
+  background-color: #21aa1d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 17px;
+  cursor: pointer;
+}

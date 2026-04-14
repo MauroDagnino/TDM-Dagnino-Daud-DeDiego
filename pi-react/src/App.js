@@ -1,16 +1,18 @@
 
 import './App.css';
-import Home from './screens/Home/home';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
+import Home from './components/home/home';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
 import React from 'react';
 import Search from './components/search/search';
 import { BrowserRouter, Route, Switch, } from 'react-router-dom';
 import Error from './components/notFound/notFound';
-import Cuenta from './screens/cuenta/Cuenta';
-import Login from './screens/login/Login';
-import Peliculas from './screens/PeliculasScreen/PeliculasScreen';
-import Series from './screens/SeriesScreen/SeriesScreen';
+import Cuenta from './Screens/cuenta/Cuenta';
+import Login from './Screens/Login/Login';
+import Peliculas from './Screens/PeliculasScreen/PeliculasScreen';
+import Series from './Screens/SeriesScreen/SeriesScreen';
+import ResultadosBusqueda from './Screens/ResultadosBusqueda/ResultadosBusqueda';
+import Favoritos from './components/favoritos/favoritos';
 
 function App() {
   return (
@@ -24,9 +26,10 @@ function App() {
           <Route path="/Peliculas" component={Peliculas}/>
 
           <Route path="/Series" component={Series}/>
+          <Route path="/Favoritos" component={Favoritos}/>
           <Route path="/Cuenta" component={Cuenta}/>
           <Route path = "/Login" component = {Login}/>
-          <Route path="/ResultadoBusqueda/:busqueda" />
+          <Route path="/ResultadoBusqueda/:type/:busqueda" component = {ResultadosBusqueda} />
           <Route component={Error} />
 
         </Switch>

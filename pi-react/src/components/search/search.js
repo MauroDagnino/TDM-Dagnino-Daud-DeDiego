@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 import { withRouter } from 'react-router-dom';
+import './search.css'
 
 class Search extends Component{
     constructor(props){
         super(props);
         this.state = {
-            search: ''
+            search: '',
+            type: 'movie'
         };
     }
 
     onSubmit(event) {
         event.preventDefault();
-        this.props.history.push(`/ResultadoBusqueda/${this.state.search}`)
+        this.props.history.push(`/ResultadoBusqueda/${this.state.type}/${this.state.search}`)
     }
 
     controlarCambios(e) {
@@ -20,16 +22,29 @@ class Search extends Component{
         })
     }
 
+    cambiarTipo(e) {
+        this.setState({ 
+            type: e.target.value 
+        })
+    }
+
     render() {
         return(
-            <div className=''>
-                <form onSubmit={(event) => this.onSubmit(event)}>
+            <div className='buscador'>
+                <form className='buscadorForm' onSubmit={(event) => this.onSubmit(event)}>
                     <input
                         type="text"
                         placeholder="Buscar..."
                         onChange={(e) => this.controlarCambios(e)}
                         value={this.state.search}
                     />
+                    <select
+                    value={this.state.type}
+                    onChange={(e) => this.cambiarTipo(e)}
+                    >
+                        <option value="movie">Películas</option>
+                        <option value="tv">Series</option>
+                    </select>
                     <button type="submit">Buscar</button>
                 </form>
             </div>
