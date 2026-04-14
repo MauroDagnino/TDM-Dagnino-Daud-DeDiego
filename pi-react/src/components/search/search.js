@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { withRouter } from 'react-router-dom';
 
 class Search extends Component{
     constructor(props){
@@ -11,7 +11,7 @@ class Search extends Component{
 
     onSubmit(event) {
         event.preventDefault();
-        this.props.history.push(`/ResultadoBusqueda/${this.props.search}`)
+        this.props.history.push(`/ResultadoBusqueda/${this.state.search}`)
     }
 
     controlarCambios(e) {

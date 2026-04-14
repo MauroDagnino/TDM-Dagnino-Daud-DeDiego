@@ -3,6 +3,7 @@ import './header.css'
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 function Header() {
     return(
+        <><h1>UdeSA Movies</h1>
         <nav>
             <ul className="nav nav-tabs my-4">
                 <li className="nav-item">
@@ -25,6 +26,7 @@ function Header() {
                 </li>
             </ul>
         </nav>
+        </>
     );
 } 
 
