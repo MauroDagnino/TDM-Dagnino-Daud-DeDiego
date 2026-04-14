@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Resultado from '../../../components/resultados/resultados';
-import Loader from '../../../components/loader/loader'
+import Resultado from '../../components/resultados/resultados';
+import Loader from '../../components/loader/loader'
+import CardNMP from '../../components/CardMNP/CardMNP';
+import CardSAT from '../../components/CardSAT/CardSAT';
 
 class ResultadosBusqueda extends Component {
 
@@ -34,21 +36,33 @@ class ResultadosBusqueda extends Component {
 }
 
     render() {
+      const {type} = this.props.match.params
         if (this.state.cargando) {
             return <Loader/>
         }
         return (
-        <div>
-            {this.state.resultados.map(pelicula => (
-            <Resultado>
-                key={pelicula.id}
-                title={pelicula.title}
-                poster_path={pelicula.poster_path}
-            </Resultado>
-            ))}
-        </div>
-        );
-  }
+    <div>
+      {this.state.resultados.map((item) => (
+        type === 'movie' ? (
+          <CardNMP
+            key={item.id}
+            id={item.id}
+            nombre={item.title}
+            foto={"https://image.tmdb.org/t/p/w342" + item.poster_path}
+            desc={item.overview}
+          />
+        ) : (
+          <CardSAT
+            key={item.id}
+            id={item.id}
+            nombre={item.name}
+            imagen={"https://image.tmdb.org/t/p/w342" + item.poster_path}
+            desc={item.overview}
+          />
+        )
+      ))}
+    </div>
+  );
 }
-  
+}
 export default ResultadosBusqueda

@@ -11,7 +11,8 @@ import Cuenta from './Screens/cuenta/Cuenta';
 import Login from './Screens/Login/Login';
 import Peliculas from './Screens/PeliculasScreen/PeliculasScreen';
 import Series from './Screens/SeriesScreen/SeriesScreen';
-import ResultadosBusqueda from './Screens/cuenta/ResultadosBusqueda/ResultadosBusqueda';
+import ResultadosBusqueda from './Screens/ResultadosBusqueda/ResultadosBusqueda';
+import Favoritos from './components/favoritos/favoritos';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/Peliculas" component={Peliculas}/>
 
           <Route path="/Series" component={Series}/>
+          <Route path="/Favoritos" component={Favoritos}/>
           <Route path="/Cuenta" component={Cuenta}/>
           <Route path = "/Login" component = {Login}/>
           <Route path="/ResultadoBusqueda/:type/:busqueda" component = {ResultadosBusqueda} />

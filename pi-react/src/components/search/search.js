@@ -7,7 +7,7 @@ class Search extends Component{
         super(props);
         this.state = {
             search: '',
-            type: ''
+            type: 'movie'
         };
     }
 
