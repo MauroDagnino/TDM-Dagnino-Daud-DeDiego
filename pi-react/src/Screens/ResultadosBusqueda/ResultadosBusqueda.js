@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Resultado from '../../components/resultados/resultados';
-import Loader from '../../components/loader/loader'
+import Resultado from '../../components/Resultados/Resultados';
+import Loader from '../../components/Loader/Loader'
 import CardNMP from '../../components/CardMNP/CardMNP';
 import CardSAT from '../../components/CardSAT/CardSAT';
 

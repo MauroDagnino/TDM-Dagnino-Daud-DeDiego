@@ -1,6 +1,6 @@
 import React from 'react';
-import Movies from '../../components/peliculas/peliculas';
-import SeriesC from '../../components/series/series';
+import Movies from '../Peliculas/Peliculas';
+import SeriesC from '../Series/Series';
 
 function Home() {
     return (

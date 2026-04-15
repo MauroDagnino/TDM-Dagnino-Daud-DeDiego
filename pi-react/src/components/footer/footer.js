@@ -1,5 +1,5 @@
 import React from "react";
-import './footer.css'
+import './Footer.css'
 function Footer() {
     return (
         <footer className="alert alert-primary mt-4 text-center">

@@ -1,18 +1,18 @@
 
 import './App.css';
-import Home from './components/home/home';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
+import Home from './components/Home/Home';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 import React from 'react';
-import Search from './components/search/search';
+import Search from './components/Search/Search';
 import { BrowserRouter, Route, Switch, } from 'react-router-dom';
-import Error from './components/notFound/notFound';
-import Cuenta from './Screens/cuenta/Cuenta';
+import Error from './components/NotFound/NotFound';
+import Cuenta from './Screens/Cuenta/Cuenta';
 import Login from './Screens/Login/Login';
 import Peliculas from './Screens/PeliculasScreen/PeliculasScreen';
 import Series from './Screens/SeriesScreen/SeriesScreen';
 import ResultadosBusqueda from './Screens/ResultadosBusqueda/ResultadosBusqueda';
-import Favoritos from './components/favoritos/favoritos';
+import Favoritos from './components/Favoritos/Favoritos';
 
 function App() {
   return (
