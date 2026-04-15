@@ -47,7 +47,8 @@ nav {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1%;
     margin-bottom: 2%;
 }
 .cardBody {
@@ -60,21 +61,21 @@ nav {
     width: 24%;
 }
 .single-card-playing {
-    width: 15%;
+    width: 24%;
 }
 #now-playing .card-text{
     height: 100px;
     overflow: hidden;
 }
 .single-card-tv {
-    width: 19%;
+    width: 24%;
 }
 .tv-show .card-text{
     height: 100px;
     overflow: hidden;
 }
 .single-card-on-air{
-    width: 15%;
+    width: 24%;
 }
 #on-air-today .card-text{
     height: 100px;
@@ -83,6 +84,10 @@ nav {
 
 .all-movies .single-card-movie {
     width: 15%;
+}
+
+.btn {
+    cursor: pointer;
 }
 
 @media(min-width: 765px){

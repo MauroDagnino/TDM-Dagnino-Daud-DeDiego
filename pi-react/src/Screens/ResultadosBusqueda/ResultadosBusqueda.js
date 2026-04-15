@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Resultado from '../../components/Resultados/Resultados';
 import Loader from '../../components/Loader/Loader';
-import CardNMP from '../../components/CardMNP/CardMNP';
-import CardSAT from '../../components/CardSAT/CardSAT';
+import CardMovie from '../../components/CardMovie/CardMovie';
+import CardSerie from '../../components/CardSeries/CardSeries';
 
 class ResultadosBusqueda extends Component {
 
@@ -41,10 +41,10 @@ class ResultadosBusqueda extends Component {
             return <Loader/>
         }
         return (
-    <div>
+    <div className='cards'>
       {this.state.resultados.map((item) => (
         type === 'movie' ? (
-          <CardNMP
+          <CardMovie
             key={item.id}
             id={item.id}
             nombre={item.title}
@@ -52,7 +52,7 @@ class ResultadosBusqueda extends Component {
             desc={item.overview}
           />
         ) : (
-          <CardSAT
+          <CardSerie
             key={item.id}
             id={item.id}
             nombre={item.name}

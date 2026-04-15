@@ -32,22 +32,28 @@ class Favoritos extends Component {
       }
     };
 
-    const idsPeliculas = JSON.parse(localStorage.getItem('favoritosP'));
+    const idsPeliculas = JSON.parse(localStorage.getItem('favoritosP')) || [];
     idsPeliculas.map(id => {
     fetch(`https://api.themoviedb.org/3/movie/${id}`, options)
         .then(res => res.json())
         .then(data => {
-        this.setState(prev => ({ peliculas: [...prev.peliculas, data] }));
+            this.setState(prev => {
+        if (prev.peliculas.find(p => p.id === data.id)) return prev
+        return { peliculas: [...prev.peliculas, data] }
+    })
         });
     });
 
-    const idsSeries = JSON.parse(localStorage.getItem('favoritosS'));
+    const idsSeries = JSON.parse(localStorage.getItem('favoritosS')) || [];
     idsSeries.map(id => {
       fetch(`https://api.themoviedb.org/3/tv/${id}`, options)
         .then(res => res.json())
         .then(data => {
-        this.setState(prev => ({ series: [...prev.series, data] }));
-        });
+            this.setState(prev => {
+        if (prev.series.find(s => s.id === data.id)) return prev
+        return { series: [...prev.series, data] }
+    })
+    });
     });
   }
 
@@ -55,6 +61,7 @@ class Favoritos extends Component {
     return (
       <div>
         <h2>Películas favoritas</h2>
+        <section className='cards'>
         {this.state.peliculas.length === 0
           ? <p>No tenés películas favoritas.</p>
           : this.state.peliculas.map(p => (
@@ -67,8 +74,10 @@ class Favoritos extends Component {
             />
           ))
         }
+        </section>
 
         <h2>Series favoritas</h2>
+        <section className='row cards'>
         {this.state.series.length === 0
           ? <p>No tenés series favoritas.</p>
           : this.state.series.map(s => (
@@ -81,6 +90,7 @@ class Favoritos extends Component {
             />
           ))
         }
+        </section>
       </div>
     );
   }
