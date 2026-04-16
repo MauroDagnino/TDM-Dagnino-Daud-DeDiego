@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import CardMovie from '../CardMovie/CardMovie';
 import CardSAT from '../CardSAT/CardSAT';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
-
-function tieneSession() {
-  return cookies.get('sesion') !== undefined;
-}
 
 class Favoritos extends Component {
 
@@ -19,10 +13,6 @@ class Favoritos extends Component {
   }
 
   componentDidMount() {
-    if (!tieneSession()) {
-      this.props.history.push('/Login');
-      return;
-    }
 
     const options = {
       method: 'GET',
