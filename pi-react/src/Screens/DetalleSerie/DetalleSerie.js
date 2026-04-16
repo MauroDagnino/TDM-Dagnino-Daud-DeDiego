@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "../../components/Loader/Loader";
 class DetalleSerie extends Component {
     constructor(props) {
         super(props)
@@ -37,7 +38,7 @@ class DetalleSerie extends Component {
                         </section>
                     </>
                 ) : (
-                    <p>Cargando...</p>
+                    <Loader/>
                 )}
             </>
         )

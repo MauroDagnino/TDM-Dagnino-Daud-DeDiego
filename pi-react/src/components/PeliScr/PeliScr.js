@@ -1,5 +1,6 @@
 import CardNMP from "../../components/CardMNP/CardMNP";
 import { Component } from "react"
+import Loader from "../Loader/Loader";
 class PeliculasScreen extends Component {
     constructor(props) {
         super(props)
@@ -73,7 +74,7 @@ class PeliculasScreen extends Component {
                                     desc={personaje.overview} />
                             ))
                         ) : (
-                            <p>Cargando... </p>
+                            <Loader/>
                         )
 
                     }

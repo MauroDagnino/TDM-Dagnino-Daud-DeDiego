@@ -1,6 +1,7 @@
 import CardMovie from "../CardMovie/CardMovie"
 import CardNMP from "../CardMNP/CardMNP"
 import { Component } from "react"
+import Loader from "../Loader/Loader"
 class Movies extends Component {
     constructor(props) {
         super(props)
@@ -51,7 +52,7 @@ class Movies extends Component {
                                 />
                             ))
                         ) : (
-                            <p>Cargando..</p>
+                            <Loader/>
                         )
                     } 
                 </section>
@@ -68,7 +69,7 @@ class Movies extends Component {
                                 />
                             ))
                         ) : (
-                            <p>Cargando... </p>
+                            <Loader/>
                         )
 
                     }

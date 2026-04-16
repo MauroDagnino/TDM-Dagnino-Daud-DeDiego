@@ -1,5 +1,6 @@
 import CardSAT from "../CardSAT/CardSAT";
 import { Component } from "react"
+import Loader from "../Loader/Loader";
 class SeriesScreen extends Component {
     constructor(props) {
         super(props)
@@ -73,7 +74,7 @@ class SeriesScreen extends Component {
                                     desc={personaje.overview} />
                             ))
                         ) : (
-                            <p>Cargando... </p>
+                            <Loader/>
                         )
 
                     }
