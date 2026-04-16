@@ -25,6 +25,7 @@ class DetallePeli extends Component {
                     <>
                         <h2 className="alert alert-warning">{this.state.personaje.original_title}</h2>
                         <section className="row">
+                            <img className="col-md-6" src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt=""/>
                             <section className="col-md-6 info">
                                 <h3>Descripción</h3>
                                 <p className="description">{this.state.personaje.overview}</p>
@@ -34,7 +35,7 @@ class DetallePeli extends Component {
                                 <p className="mt-0 mb-0" id="episodes"><strong>Duracion:</strong>{this.state.personaje.runtime}</p>
                                 <button className="btn alert-primary">Favoritos</button>
                             </section>
-                            <img className="col-md-6" src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt=""/>
+                            
                         </section>
                     </>
                 ) : (
