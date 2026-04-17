@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Resultado from '../../components/Resultados/Resultados';
+import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
 import CardMovie from '../../components/CardMovie/CardMovie';
 import CardSerie from '../../components/CardSeries/CardSeries';

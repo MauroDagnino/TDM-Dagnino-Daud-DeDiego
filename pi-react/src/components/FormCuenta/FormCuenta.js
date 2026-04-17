@@ -35,7 +35,7 @@ class FormCuenta extends Component {
                 enviado: false,
                 validarEmail: false
             });
-
+            window.location.href = "/login";
             
         }
 

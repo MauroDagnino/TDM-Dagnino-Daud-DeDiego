@@ -90,6 +90,15 @@ nav {
     cursor: pointer;
 }
 
+.oculto{
+    display: none;
+}
+#s{
+    margin: 20px
+}
+#p{
+    margin: 20px;
+}
 @media(min-width: 765px){
     nav {
         grid-template-columns: 1fr;

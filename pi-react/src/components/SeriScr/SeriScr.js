@@ -57,11 +57,6 @@ class SeriesScreen extends Component {
         console.log(this.state)
         return (
                 <>
-                <form onSubmit={(e) => this.evitarEnvio(e)}>
-                        <label>Nombre: </label>
-                        <input type="text" onChange={(evento)=>this.cambioDelInput(evento)} value={this.state.valor}></input>
-                        <input type="submit" value="submit"></input>
-                </form>
                 <h2 className="alert alert-primary">Peliculas</h2>
                 <section className="row cards" id="now-playing">
                     {
