@@ -1,4 +1,3 @@
-
 import './App.css';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
@@ -15,6 +14,7 @@ import ResultadosBusqueda from './Screens/ResultadosBusqueda/ResultadosBusqueda'
 import Favoritos from './components/Favoritos/Favoritos';
 import DetallePeli from './Screens/DetallePeli/DetallePeli';
 import DetalleSerie from './Screens/DetalleSerie/DetalleSerie';
+import Logout from './Screens/Logout/Logout';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
           <Route path = "/Login" component = {Login}/>
           <Route path = "/DetallePeli/:id" component = {DetallePeli}/>
           <Route path = "/DetalleSerie/:id" component = {DetalleSerie}/>
+          <Route path = "/Logout" component={Logout}/>
 
           <Route path="/ResultadoBusqueda/:type/:busqueda" component = {ResultadosBusqueda} />
           <Route component={Error} />

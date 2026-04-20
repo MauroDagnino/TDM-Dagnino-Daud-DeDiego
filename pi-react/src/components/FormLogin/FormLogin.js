@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { Link, withRouter } from 'react-router-dom';
 import "../FormCuenta/FormCuenta.css"
+import Cookies from "universal-cookie";
 
- 
-class FormLogin extends Component {
+const cookies = new Cookies();
+
+class FormLogin extends Component { 
     constructor(props) {
         super(props);
         this.state = {
@@ -25,16 +28,10 @@ class FormLogin extends Component {
         let passwordGuardada = localStorage.getItem("passwordUsuario");
  
         if (this.state.email === emailGuardado && this.state.password === passwordGuardada) {
-            document.cookie = "sesion=" + this.state.email + "; path=/";
+        
+            cookies.set("sesion", this.state.email, { path: "/" });
             console.log("sesión creada");
- 
-            this.setState({
-                email: '',
-                password: '',
-                enviado: false,
-                credencialesIncorrectas: false,
-            });
- 
+            this.props.history.push("/");
         } else {
             this.setState({ credencialesIncorrectas: true });
             console.log("credenciales incorrectas");
@@ -93,4 +90,4 @@ class FormLogin extends Component {
     }
 }
  
-export default FormLogin
+export default withRouter(FormLogin);
