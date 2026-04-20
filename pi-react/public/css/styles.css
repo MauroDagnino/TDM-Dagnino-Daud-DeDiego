@@ -104,3 +104,49 @@ nav {
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 768px) {
+    .cards {
+        padding: 0.5;
+        gap: 2%;
+    }
+    
+    .single-card-people {
+        width: 48%;
+    }
+    
+    .single-card-movie {
+        width: 48%;
+    }
+    
+    .single-card-playing {
+        width: 48%;
+    }
+    
+    .single-card-tv {
+        width: 48%;
+    }
+    
+    .single-card-on-air {
+        width: 48%;
+    }
+    
+    .all-movies .single-card-movie {
+        width: 48%;
+    }
+    
+    .search-form,
+    .filter-form {
+        grid-template-columns: 1fr;
+        padding: 0.5rem 0;
+    }
+    
+    #now-playing .card-text,
+    .tv-show .card-text,
+    #on-air-today .card-text {
+        height: 70px;
+    }
+    
+    .nav a {
+        font-size: 0.9;
+    }
+}
