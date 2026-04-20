@@ -57,7 +57,7 @@ class SeriesScreen extends Component {
         console.log(this.state)
         return (
                 <>
-                <h2 className="alert alert-primary">Peliculas</h2>
+                <h2 className="alert alert-primary">Series</h2>
                 <section className="row cards" id="now-playing">
                     {
                         this.state.personajes.length > 0 ? (

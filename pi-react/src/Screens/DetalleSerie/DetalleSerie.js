@@ -10,7 +10,7 @@ class DetalleSerie extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bb857f4016bcff3ee72ee89cb409417f`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=bb857f4016bcff3ee72ee89cb409417f`)
             .then(response => response.json())
             .then(data => this.setState({ personaje: data }))
             .catch(error => console.log(error))
