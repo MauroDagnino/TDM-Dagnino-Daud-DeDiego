@@ -99,6 +99,9 @@ nav {
 #p{
     margin: 20px;
 }
+.oculto {
+    display: none;
+}
 @media(min-width: 765px){
     nav {
         grid-template-columns: 1fr;

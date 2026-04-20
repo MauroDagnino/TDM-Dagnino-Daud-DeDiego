@@ -1,5 +1,9 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import Cookies from "universal-cookie"
+
+const cookies = new Cookies()
+
 class CardNMP extends Component {
   constructor(props) {
     super(props)
@@ -66,6 +70,7 @@ class CardNMP extends Component {
   }
 
   render() {
+    const cookie= cookies.get("sesion")
     return (
       <article className="single-card-playing">
         <img src={this.props.foto} className="card-img-top" alt=" " />
@@ -80,12 +85,20 @@ class CardNMP extends Component {
           </button>
 
           <Link to={"/DetallePeli/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
-          <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>
-          <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavP()}>Quitar de Favoritos</button>
+          
+          {cookie ? (
+            <>
+              <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>
+              <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavP()}>Quitar de Favoritos</button>
+            </>
+          ) : (
+            <p></p>
+          )
+          }
         </div>
       </article>
-    )
-  }
+        )
+    }
 }
 
 export default CardNMP

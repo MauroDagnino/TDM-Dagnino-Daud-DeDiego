@@ -1,5 +1,9 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import Cookies from "universal-cookie"
+
+const cookies = new Cookies()
+
 class CardSAT extends Component {
   constructor(props) {
     super(props)
@@ -70,6 +74,7 @@ class CardSAT extends Component {
     
 
   render() {
+    const cookie= cookies.get("sesion")
     return (
       <article className="single-card-on-air mb-3">
         <img src={this.props.imagen} className="card-img-top"
@@ -85,12 +90,20 @@ class CardSAT extends Component {
           </button>
 
           <Link to={"/DetalleSerie/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
-          <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavS()}>Agregar a Favoritos</button>
-          <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavS()}>Quitar de Favoritos</button>
+          
+          {cookie ? (
+            <>
+              <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavS()}>Agregar a Favoritos</button>
+              <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavS()}>Quitar de Favoritos</button>
+            </>
+          ) : (
+            <p></p>
+          )
+          }
         </div>
       </article>
-    )
-  }
+        )
+    }
 }
 
 export default CardSAT
