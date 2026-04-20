@@ -3,6 +3,7 @@ import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
 import CardMovie from '../../components/CardMovie/CardMovie';
 import CardSerie from '../../components/CardSeries/CardSeries';
+import Error from '../../components/NotFound/NotFound';
 
 class ResultadosBusqueda extends Component {
 
@@ -39,6 +40,10 @@ class ResultadosBusqueda extends Component {
       const {type} = this.props.match.params
         if (this.state.cargando) {
             return <Loader/>
+        }
+
+        if (this.state.resultados.length === 0) {
+          return <Error/>
         }
         return (
     <div className='cards'>
