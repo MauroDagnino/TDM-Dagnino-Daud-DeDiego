@@ -1,19 +1,12 @@
-import React, { Component } from 'react';
+import { useState, useEffect} from 'react';
 import CardMovie from '../CardMovie/CardMovie';
 import CardSAT from '../CardSAT/CardSAT';
 
-class Favoritos extends Component {
+function Favoritos() {
+  const [peliculas, setPeliculas] = useState([])
+  const [series, setSeries] = useState([])
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      peliculas: [],
-      series: []
-    };
-  }
-
-  componentDidMount() {
-
+  useEffect(() => {
     const options = {
       method: 'GET',
       headers: {
@@ -45,16 +38,16 @@ class Favoritos extends Component {
     })
     });
     });
-  }
+  }, []);
 
-  render() {
-    return (
+
+  return (
       <div>
         <h2>Películas favoritas</h2>
         <section className='cards'>
-        {this.state.peliculas.length === 0
+        {peliculas.length === 0
           ? <p>No tenés películas favoritas.</p>
-          : this.state.peliculas.map(p => (
+          : peliculas.map(p => (
             <CardMovie
               key={p.id}
               id={p.id}
@@ -68,9 +61,9 @@ class Favoritos extends Component {
 
         <h2>Series favoritas</h2>
         <section className='row cards'>
-        {this.state.series.length === 0
+        {series.length === 0
           ? <p>No tenés series favoritas.</p>
-          : this.state.series.map(s => (
+          : series.map(s => (
             <CardSAT
               key={s.id}
               id={s.id}
@@ -84,6 +77,5 @@ class Favoritos extends Component {
       </div>
     );
   }
-}
 
 export default Favoritos;

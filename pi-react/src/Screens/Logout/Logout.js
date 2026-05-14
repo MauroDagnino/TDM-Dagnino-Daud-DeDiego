@@ -13,7 +13,6 @@ class Logout extends Component {
         cookies.remove('sesion', { path: "/" });
         this.props.history.push("/Login");
     }
-
     render() {
         return (
             <div className="container mt-5 text-center">

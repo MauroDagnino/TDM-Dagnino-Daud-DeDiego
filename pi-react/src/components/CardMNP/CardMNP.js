@@ -1,95 +1,83 @@
-import React, { Component } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import Cookies from "universal-cookie"
+import {useState, useEffect} from 'react';
 
 const cookies = new Cookies()
 
-class CardNMP extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: "",
-      clase: "Oculto",
-      textoBoton: "Ver menos",
-      favorito: false
+function CardNMP(props) {
+  const [data, setData] = useState("")
+  const [clase, setClase] = useState("Oculto")
+  const [textoBoton, setTextoBoton] = useState("Ver menos")
+  const [favorito, setFavorito] = useState(false)
+
+  useEffect(() => {
+    let storage = localStorage.getItem("favoritosP")
+    if (storage !== null) {
+      let storageParseado = JSON.parse(storage)
+      let estaEnFav = storageParseado.includes(Number(props.id))
+
+      setFavorito(estaEnFav)
     }
-  }
-  ocultar() {
-    if (this.state.clase === "oculto") {
-      this.setState({
-        clase: "",
-        textoBoton: "Ver menos"
-      })
+  }, [])
+
+  function ocultar() {
+    if (clase === "Oculto") {
+      setClase("")
+      setTextoBoton("Ver más")
     } else {
-      this.setState({
-        clase: "oculto",
-        textoBoton: "Ver mas"
-      })
+      setClase("Oculto")
+      setTextoBoton("Ver menos")
     }
   }
-  agregarFavP() {
-    let idFav = this.props.id
+
+  function agregarFavP(props) {
+    let idFav = props.id
     let storage = localStorage.getItem("favoritosP")
     if (storage != null) {
       let storageParse = JSON.parse(storage)
       storageParse.push(idFav)
       let storageString = JSON.stringify(storageParse)
       localStorage.setItem("favoritosP", storageString)
-      this.setState({ favorito: true })
+    setFavorito(true)
     } else {
       let arrayIDs = []
       arrayIDs.push(idFav)
       let arrayString = JSON.stringify(arrayIDs)
       localStorage.setItem("favoritosP", arrayString)
-      this.setState({ favorito: true })
-    }
+      setFavorito(true)
+  } }
 
-  }
-
-  sacarFavP() {
-    let idFav = this.props.id
+  function sacarFavP(props) {
+    let idFav = props.id
     let storage = localStorage.getItem("favoritosP")
     if (storage !== null) {
       let storageParseado = JSON.parse(storage)
       let storageFiltrado = storageParseado.filter(id => id !== idFav)
       let storageString = JSON.stringify(storageFiltrado)
       localStorage.setItem("favoritosP", storageString)
-      this.setState({ favorito: false })
-    }
-  }
-  componentDidMount() {
-    let storage = localStorage.getItem("favoritosP")
-    if (storage !== null) {
-      let storageParseado = JSON.parse(storage)
-      let estaEnFav = storageParseado.includes(Number(this.props.id))
+      setFavorito(false)
+  }}
+  const cookie = cookies.get('sesion')
 
-      this.setState({
-        favorito: estaEnFav
-      })
-    }
-  }
-
-  render() {
-    const cookie= cookies.get("sesion")
-    return (
+  return (
       <article className="single-card-playing">
-        <img src={this.props.foto} className="card-img-top" alt=" " />
+        <img src={props.foto} className="card-img-top" alt=" " />
         <div className="cardBody">
-          <h5 className="card-title">{this.props.nombre}</h5>
-          <section className={this.state.clase}>
+          <h5 className="card-title">{props.nombre}</h5>
+          <section className={clase}>
 
-            <p className="card-text">{this.props.desc}</p>
+            <p className="card-text">{props.desc}</p>
           </section>
-          <button className='more' onClick={() => this.ocultar()}>
-            {this.state.textoBoton}
+          <button className='more' onClick={() => ocultar()}>
+            {textoBoton}
           </button>
 
-          <Link to={"/DetallePeli/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
+          <Link to={"/DetallePeli/" + props.id}><button className="btn btn-primary">Ver detalle</button></Link>
           
           {cookie ? (
             <>
-              <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>
-              <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavP()}>Quitar de Favoritos</button>
+              <button className={favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => agregarFavP()}>Agregar a Favoritos</button>
+              <button className={favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => sacarFavP()}>Quitar de Favoritos</button>
             </>
           ) : (
             <p></p>
@@ -97,8 +85,6 @@ class CardNMP extends Component {
           }
         </div>
       </article>
-        )
-    }
-}
+  )}
 
-export default CardNMP
+export default CardNMP;

@@ -1,60 +1,57 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import "./FormCuenta.css"
 
-class FormCuenta extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            enviado: false,
-            validarEmail: false,
-        };
-    }
+function FormCuenta(props){
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [enviado, setEnviado] = useState(false);
+    const [validarEmail, setValidarEmail] = useState(false);
 
-    evitarSubmit(e) {
+    function evitarSubmit(e) {
         e.preventDefault();
-        this.setState({ enviado: true });
+        setEnviado(true);
 
-        if (this.state.password.length >= 6) {
+        if (password.length >= 6) {
             let emailUsado = localStorage.getItem("emailUsuario");
 
-            if (this.state.email === emailUsado) {
-                this.setState({ validarEmail: true });
+            if (email === emailUsado) {
+                setValidarEmail(true)
                 console.log("email usado");
                 return;
             }
 
-            localStorage.setItem("emailUsuario", this.state.email);
-            localStorage.setItem("passwordUsuario", this.state.password);
+            localStorage.setItem("emailUsuario", email);
+            localStorage.setItem("passwordUsuario", password);
             console.log(localStorage);
 
-            this.setState({
-                email: '',
-                password: '',
-                enviado: false,
-                validarEmail: false
-            });
+            setEmail("")
+            setPassword("")
+            setValidarEmail(false)
+            setEnviado(false)
             window.location.href = "/login";
             
         }
-
-        console.log("el formulario se envió");
-    }
-
-    controlarEmail(e) {
-        this.setState({ email: e.target.value });
-        console.log("email: " + this.state.email);
-    }
-
-    controlarPassword(e) {
-        this.setState({ password: e.target.value });
-        console.log("password: " + this.state.password);
-    }
-
-    render() {
         return (
-            <form className="form-cuenta" onSubmit={(event) => this.evitarSubmit(event)}>
+        console.log("el formulario se envió")
+        )
+    }
+
+    function controlarEmail(e) {
+        setEmail(e.target.value);
+        return (
+        console.log("email: " + email)
+        )
+    }
+
+    function controlarPassword(e) {
+        setPassword(e.target.value);
+        return (
+        console.log("password: " + password)
+        )
+    }
+
+    return (
+            <form className="form-cuenta" onSubmit={(event) => evitarSubmit(event)}>
 
                 <div>
                     <label>Correo Electrónico </label>
@@ -62,11 +59,11 @@ class FormCuenta extends Component {
                         className="campo-forms"
                         type="text"
                         placeholder="Ingresá tu email"
-                        onChange={(event) => this.controlarEmail(event)}
-                        value={this.state.email}
+                        onChange={(event) => controlarEmail(event)}
+                        value={email}
                     />
-                    {this.state.email.length === 0 && this.state.enviado ? <p className="error">El campo está vacío</p> : ""}
-                    {this.state.validarEmail ? <p className="error">Este correo ya está asociado a una cuenta</p> : ""}
+                    {email.length === 0 && enviado ? <p className="error">El campo está vacío</p> : ""}
+                    {validarEmail ? <p className="error">Este correo ya está asociado a una cuenta</p> : ""}
                 </div>
 
                 <div>
@@ -75,13 +72,13 @@ class FormCuenta extends Component {
                         className="campo-forms"
                         type="password"
                         placeholder="Ingresá tu contraseña"
-                        onChange={(event) => this.controlarPassword(event)}
-                        value={this.state.password}
+                        onChange={(event) => controlarPassword(event)}
+                        value={password}
                     />
-                    {this.state.password.length === 0 && this.state.enviado ? <p className="error">El campo está vacío</p> : ""}
+                    {password.length === 0 && enviado ? <p className="error">El campo está vacío</p> : ""}
                 </div>
 
-                {this.state.password.length !== 0 && this.state.password.length < 6 && this.state.enviado ? <p className="error">La contraseña debe tener al menos 6 caracteres</p> : ""}
+                {password.length !== 0 && password.length < 6 && enviado ? <p className="error">La contraseña debe tener al menos 6 caracteres</p> : ""}
 
                 <input className="boton" type="submit" value="crear cuenta" />
 
@@ -89,7 +86,7 @@ class FormCuenta extends Component {
 
             </form>
         )
-    }
+
 }
 
 export default FormCuenta
